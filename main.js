@@ -26,13 +26,16 @@ function showSlider(type) {
         runTimeOut = setTimeout(() => {
             showDom.appendChild(imgSlider[0])
             showDom.classList.remove('next')
-            nextDom.disabled = false;
         }, 2000);
         
-        console.log(showDom)
     }
     else if (type ==='prev') {
         showDom.classList.add('prev')
+        runTimeOut = setTimeout(()=> {
+            let positionLastItem = imgSlider.length - 1;
+            showDom.prepend(imgSlider[positionLastItem])
+            showDom.classList.remove('prev')
+        }, 2000)
         
     }
     // clearTimeout(runTimeOut)
